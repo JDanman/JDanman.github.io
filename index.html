@@ -13,11 +13,11 @@
 
     <a-scene embedded arjs='sourceType: webcam;'>
         
-        <!-- handle marker with hiro preset -->
+        <!-- Prefab Hiro -->
         <a-marker preset='hiro'>
-          <a-cylinder position='0 0.5 0' material='color: green;'></a-cylinder>
+          <a-cylinder position='0 0.5 0' rotation='0 90 0' material='color: green;'></a-cylinder>
         </a-marker>
-        <!-- handle barcode marker -->
+        <!-- Prefab Kanji -->
         <a-marker type='kanji' value='5'>
           <a-box position='0 0.5 0' material='color: blue;'></a-box>
         </a-marker>
