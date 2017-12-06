@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="res/bat.ico">    
+    <title>Batman vs Two-Face</title>
+    <script src="aframe.min.js"></script>
+    <script src="AR/AR/aframe/build/aframe-ar.js"></script>
+
+</head>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate:30; canvasWidth: 240; canvasHeight: 180'>
+        
+        <!--Configurando recursos-->
+        <a-assets>
+            <img id="tururu" src="res/tururu.jpg">
+            <img id="bat-logo" src="res/bat-logo.png">
+            <img id="portada" src="res/bbox/front-cover.jpg">
+            <img id="contraportada" src="res/bbox/back-cover.jpg">
+            <img id="union" src="res/bbox/middle-cover.jpg">
+            <img id="logo" src="res/bbox/brlogo.jpg">
+        </a-assets>
+
+        <!--Tururu-->
+        <a-image src="#tururu" rotation="0 0 0" position="0 0 -3" width="3.5" height="3.5">
+                <a-animation attribute="rotation" to="0 0 360" dur="500" easing='linear' repeat="indefinite"></a-animation>
+                <a-animation attribute="material.opacity" begin="1500" to="0"></a-animation>
+        </a-image>
+        <a-image src="#bat-logo" rotation="0 0 0" position="0 0 -2.9" width=".7" height=".7">
+                <a-animation attribute="position" to="0 0 -.5" dur="400" easing='linear' repeat="1"></a-animation>
+                <a-animation attribute="position" from="0 0 -.5" to="0 0 -2.9" begin="300" dur="400" easing='linear' repeat="1"></a-animation>
+                <a-animation attribute="material.opacity" begin="1500" to="0"></a-animation>
+        </a-image>
+
+        <a-marker-camera preset='custom' type='pattern' url='batman.patt'>
+                
+            <a-video src="res/intro.mp4" position="0 0 0" volume ="0.1" rotation ='-90 0 0' width="2.5" height="1.5">
+                <a-box a-box color="#017bbe"
+                width = "1" height = "1.5" depth = "0.1"
+                position="2 0 0" rotation="0 0 0" opacity="0.8">
+                    <a-image src="#logo" rotation="0 0 0" position="0 0.7 0.11" width=".075" height=".075" opacity="0.8"></a-image>        
+                    <a-image src="#portada" rotation="0 0 0" position="0 -.05 0.13" width="1" height="1.4"></a-image>
+                    <a-image src="#contraportada" rotation="0 180 0" position="0 -.05 -0.13" width="1" height="1.4"></a-image>
+                    <a-image src="#union" rotation="0 -90 0" position="-0.56 -0.05 0" width="0.1" height="1.4"></a-image>                    
+                    <a-animation attribute="rotation" to="0 360 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-box>
+            
+                <a-box a-box color="#017bbe"
+                width = "1" height = "1.5" depth = "0.1"
+                position="-2 0 0" rotation="0 0 0" opacity="0.8">
+                    <a-image src="#logo" rotation="0 180 0" position="0 0.7 -0.11" width=".075" height=".075" opacity="0.8"></a-image>  
+                    <a-image src="#portada" rotation="0 180 0" position="0 -.05 -0.13" width="1" height="1.4"></a-image>
+                    
+                    <a-image src="#contraportada" rotation="0 0 0" position="0 -.05 0.13" width="1" height="1.4"></a-image>
+
+                    <a-image src="#union" rotation="0 90 0" position="0.56 -0.05 0" width="0.1" height="1.4"></a-image>
+                    <a-animation attribute="rotation" to="0 -360 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                </a-box>
+            </a-video>
+
+            <a-text value="¡EN TU TIENDA FAVORITA!" color="white" rotation="-90 0 0" position="-1 0.5 1">
+                    <a-animation attribute="text.color" begin="1000" to="yellow" repeat="indefinite"></a-animation>
+                    <a-animation attribute="text.color" begin="3000" to="black" repeat="indefinite"></a-animation>
+            </a-text>
+        </a-marker-camera>
+        <a-entity camera></a-entity>
+    </a-scene>         
+</body>
+</html>
